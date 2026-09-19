@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Laborator 1 – Întinderea și compresiunea – Versiunea 12.1.1</title>
+<title>Laborator 1 – Întinderea și compresiunea – V13 FINAL</title>
 <style>
 :root{--bg:#eef3f8;--card:#fff;--ink:#17202a;--muted:#5e6b78;--line:#cbd5df;--blue:#1769aa;--blue2:#e7f2fb;--green:#19734a;--red:#a63b32;--yellow:#f4cf62}
 *{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}
@@ -73,27 +73,29 @@ textarea:focus,input:focus,select:focus,button:focus-visible{outline:3px solid r
 .practiceGallery figcaption{padding:11px 12px;line-height:1.4}
 @media(max-width:760px){.practiceGallery{grid-template-columns:1fr}.practiceGallery img{height:230px}}
 
-@media print{header,nav,.navfoot,.no-print,#gradeFinalQuiz,#resetFinalQuiz,#refreshReport,#printStudentReport{display:none!important}.shell{display:block;margin:0;padding:0}.page{display:block!important;border:0;page-break-after:always}.page:not(#concluzii){display:none!important}body{background:#fff}}
 
+@page{size:A4 portrait;margin:12mm}
 @media print{
-  body{background:#fff!important}
-  #concluzii{display:block!important}
-  #concluzii .card,#studentReport,.completion{break-inside:avoid;box-shadow:none!important}
-  #printStudentReport{display:none!important}
+  html,body{width:auto!important;min-width:0!important}
+  body{font-size:10.5pt;line-height:1.3;background:#fff!important}
+  header,nav,.navfoot,.no-print,#gradeFinalQuiz,#resetFinalQuiz,#refreshReport,#printStudentReport{display:none!important}
+  .shell{display:block!important;margin:0!important;padding:0!important;max-width:none!important}
+  .page{display:none!important}
+  #concluzii{display:block!important;border:0!important;box-shadow:none!important;padding:0!important;margin:0!important}
+  #concluzii .stageHead{margin:0 0 8px!important}
+  #concluzii .card,#studentReport,.completion{box-shadow:none!important;break-inside:avoid-page}
+  #concluzii input,#concluzii textarea{border:1px solid #777!important;background:#fff!important;color:#000!important}
+  #concluzii table{font-size:8.5pt;width:100%;border-collapse:collapse}
+  #concluzii th,#concluzii td{padding:4px!important;border:1px solid #999!important}
+  #concluzii h2,#concluzii h3,#concluzii h4{break-after:avoid-page}
+  #concluzii tr{break-inside:avoid-page}
 }
 
-.sendModal{position:fixed;inset:0;background:rgba(15,35,52,.58);display:none;align-items:center;justify-content:center;padding:18px;z-index:9999}
-.sendModal.open{display:flex}
-.sendDialog{width:min(560px,100%);background:#fff;border-radius:16px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.25);position:relative}
-.sendDialog input{width:100%;box-sizing:border-box;margin-top:7px;padding:11px;border:1px solid #aebbc7;border-radius:8px;font:inherit;text-transform:uppercase}
-.sendClose{position:absolute;right:12px;top:9px;border:0;background:transparent;font-size:28px;cursor:pointer}
-.sendStatusOk{background:#eef8f2!important;border-color:#abd2bc!important}
-.sendStatusBad{background:#fff0ee!important;border-color:#e3b4ae!important}
-@media print{#sendTeacherBtn,#teacherSendModal{display:none!important}}
+
 </style>
 </head>
 <body>
-<header><div class="head"><h1>Laborator 1 – Întinderea și compresiunea</h1><p>Solicitări simple • Observare • Experiment • Cauză → efect &nbsp; | &nbsp; <b>Versiunea 12.1.1 – trimitere raport profesor</b></p><div class="lessonProgress"><span id="topProgressText">Etapa 1 din 9</span><div class="topProgress" style="flex:1"><i id="topProgressBar"></i></div></div></div></header>
+<header><div class="head"><h1>Laborator 1 – Întinderea și compresiunea</h1><p>Solicitări simple • Observare • Experiment • Cauză → efect &nbsp; | &nbsp; <b>V13 FINAL – versiune web independentă</b></p><div class="lessonProgress"><span id="topProgressText">Etapa 1 din 9</span><div class="topProgress" style="flex:1"><i id="topProgressBar"></i></div></div></div></header>
 <div class="shell">
 <nav id="menu" aria-label="Capitole laborator">
 <button data-page="intro" class="active">1. Introducere</button>
@@ -249,7 +251,7 @@ textarea:focus,input:focus,select:focus,button:focus-visible{outline:3px solid r
 <p><b>Simulări înregistrate:</b> <span id="reportSimCount">0</span></p>
 <p><b>Concluzia generală:</b></p><div id="reportConclusionText" class="note">Completează concluzia generală de mai sus.</div>
 <p class="no-print"><button id="refreshReport" class="btn">Actualizează raportul</button> </p>
-</div><div class="completion"><h3>Laborator finalizat</h3><p>Ai parcurs traseul: <b>observare → predicție → experiment → calcul → aplicare → evaluare → concluzie</b>.</p><p>Înainte de a încheia, verifică dacă ai înregistrat mai multe simulări, ai completat concluzia pentru fiecare și dacă poți explica de ce creșterea forței mărește efortul unitar, iar creșterea ariei îl micșorează.</p></div><div class="row no-print" style="margin-top:16px"><button class="btn primary" id="printBtn" type="button" onclick="printLabReport()">Tipărește / Salvează PDF</button><button class="btn" id="restartAll">Reia laboratorul</button></div>
+</div><div class="completion"><h3>Laborator finalizat</h3><p>Ai parcurs traseul: <b>observare → predicție → experiment → calcul → aplicare → evaluare → concluzie</b>.</p><p>Înainte de a încheia, verifică dacă ai înregistrat mai multe simulări, ai completat concluzia pentru fiecare și dacă poți explica de ce creșterea forței mărește efortul unitar, iar creșterea ariei îl micșorează.</p></div><div class="note no-print" style="margin-top:16px"><b>Salvarea raportului:</b> după ce ai completat datele, evaluarea și concluziile, apasă butonul de mai jos. În fereastra de imprimare a browserului alege <b>Salvare ca PDF / Save as PDF</b>. Fișierul PDF poate fi transmis profesorului prin metoda stabilită de școală.</div><div class="row no-print" style="margin-top:16px"><button class="btn primary" id="printBtn" type="button" onclick="printLabReport()">Tipărește / Salvează PDF</button><button class="btn" id="restartAll">Reia laboratorul</button></div>
 <div class="navfoot"><button class="btn prev">← Înapoi</button><span></span></div>
 </section>
 </main></div>
