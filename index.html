@@ -93,6 +93,21 @@ textarea:focus,input:focus,select:focus,button:focus-visible{outline:3px solid r
 
 
 </style>
+<style>
+@media print{
+ body.printBlankReport header,body.printBlankReport .shell{display:none!important}
+ body.printBlankReport #blankReport{display:block!important}
+ body.printBlankReport #blankReport table{width:100%;border-collapse:collapse;font-size:7.5pt}
+ body.printBlankReport #blankReport th,body.printBlankReport #blankReport td{border:1px solid #777;padding:3px;height:19px}
+ body.printBlankReport #blankReport th:nth-child(8),
+ body.printBlankReport #blankReport td:nth-child(8){width:10%}
+ body.printBlankReport #blankReport th:nth-child(9),
+ body.printBlankReport #blankReport td:nth-child(9){width:22%}
+
+ body.printBlankReport #blankReport h2,body.printBlankReport #blankReport h3{break-after:avoid}
+ body.printBlankReport #blankReport tr{break-inside:avoid}
+}
+</style>
 </head>
 <body>
 <header><div class="head"><h1>Laborator – Întinderea și compresiunea</h1><p>Solicitări simple &nbsp; <b></b></p><div class="lessonProgress"><span id="topProgressText">Etapa 1 din 9</span><div class="topProgress" style="flex:1"><i id="topProgressBar"></i></div></div></div></header>
@@ -113,8 +128,25 @@ textarea:focus,input:focus,select:focus,button:focus-visible{outline:3px solid r
 <div class="stageHead"><h2>1. Introducere și obiective</h2><span class="stagePill">Pornire</span></div>
 <div class="teacher"><div class="icon">👨‍🏫</div><p><b>Profesor virtual:</b> În acest laborator nu vei primi toate concluziile de la început. Mai întâi vei face o predicție, apoi vei observa experimentul și vei explica relația dintre cauză și efect.</p></div><p class="lead">Scopul lucrării este observarea fenomenelor de <b>întindere</b> și <b>compresiune</b> și corelarea cauzei – forțele axiale aplicate – cu efectul produs asupra piesei.</p>
 <div class="grid2">
-<div class="card"><h3>La final vei putea:</h3><ul><li>identifica sensul forțelor axiale;</li><li>diferenția întinderea de compresiune;</li><li>explica alungirea și scurtarea piesei;</li><li>corela forța F, aria A și efortul unitar σ;</li><li>recunoaște solicitarea în situații practice.</li></ul></div>
-<div class="card"><h3>Metoda de lucru</h3><p><b>Prezic → Experimentez → Observ → Explic → Concluzionez</b></p><p class="note">În animații, deformația este amplificată pentru a putea fi observată ușor.</p></div>
+<div class="card"><h3>La final vei putea:</h3><ul><li>identifica sensul forțelor axiale;</li><li>diferenția întinderea de compresiune;</li><li>explica alungirea și scurtarea piesei;</li><li>corela forța F, aria A și efortul unitar σ;</li><li>recunoaște solicitarea în situații practice.</li></ul>
+<div class="note" style="margin-top:14px"><b>NOTĂ:</b> Rezultatele simulărilor și ale testului de evaluare sunt înregistrate automat la Concluzii, urmând ca elevul să completeze concluziile în rubrica „Concluzie generală după simulări” și să salveze Raportul în format PDF. Dacă se dorește completarea manuală a raportului de către elev, apăsați butonul de mai jos pentru a genera raportul necompletat, în format PDF.</div>
+<div class="row" style="margin-top:12px"><button class="btn primary" id="blankReportBtn" type="button">Generează raport necompletat</button></div>
+</div>
+<div class="card"><h3>Metoda de lucru</h3>
+<p><b>Prezic → Experimentez → Observ → Explic → Concluzionez</b></p>
+<h4 style="margin-bottom:8px">Mod de lucru</h4>
+<ol style="margin-top:0;padding-left:22px">
+<li><b>Introducere:</b> citește obiectivele lucrării și modul de desfășurare a laboratorului.</li>
+<li><b>Noțiuni teoretice:</b> urmărește sensul forțelor axiale și reține relația dintre forță, arie și efortul unitar.</li>
+<li><b>Observarea fenomenului:</b> formulează o predicție, alege solicitarea, aplică forța și observă deformarea piesei.</li>
+<li><b>Experiment ghidat:</b> răspunde la fiecare cerință, verifică experimental predicția și urmărește concluziile din jurnal.</li>
+<li><b>Experiment liber:</b> modifică forța și aria secțiunii, observă variația efortului unitar și memorează măsurări relevante.</li>
+<li><b>Calculator:</b> alege solicitarea, profilul și materialul, introdu datele, efectuează calculul și compară valorile obținute.</li>
+<li><b>Aplicații practice:</b> identifică solicitarea predominantă în exemplele prezentate.</li>
+<li><b>Evaluare:</b> rezolvă individual itemii și apoi verifică rezultatul.</li>
+<li><b>Concluzii:</b> completează concluzia proprie și raportul final, apoi îl poți tipări sau salva PDF.</li>
+</ol>
+<p class="note">În animații, deformația este amplificată pentru a putea fi observată ușor.</p></div>
 </div>
 <div class="navfoot"><span></span><button class="btn primary next">Începe laboratorul →</button></div>
 </section>
@@ -122,8 +154,8 @@ textarea:focus,input:focus,select:focus,button:focus-visible{outline:3px solid r
 <section id="teorie" class="page">
 <div class="stageHead"><h2>2. Noțiuni teoretice esențiale</h2><span class="stagePill">Înțeleg</span></div>
 <div class="grid2">
-<div class="card"><h3>Întindere</h3><p>Forțele axiale sunt orientate spre exterior și tind să depărteze capetele piesei. Lungimea crește.</p><div class="diagram"><svg viewBox="0 0 520 130"><defs><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z"/></marker></defs><rect x="150" y="45" width="220" height="45" fill="#f4cf62" stroke="#17202a" stroke-width="2"/><line x1="135" y1="67" x2="45" y2="67" stroke="#17202a" stroke-width="4" marker-end="url(#ao)"/><line x1="385" y1="67" x2="475" y2="67" stroke="#17202a" stroke-width="4" marker-end="url(#ao)"/><text x="80" y="45" font-size="20">F</text><text x="440" y="45" font-size="20">F</text><text x="260" y="120" text-anchor="middle">L crește • ΔL &gt; 0</text></svg></div></div>
-<div class="card"><h3>Compresiune</h3><p>Forțele axiale sunt orientate spre interior și tind să apropie capetele piesei. Lungimea scade.</p><div class="diagram"><svg viewBox="0 0 520 130"><defs><marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z"/></marker></defs><rect x="150" y="45" width="220" height="45" fill="#f4cf62" stroke="#17202a" stroke-width="2"/><line x1="45" y1="67" x2="135" y2="67" stroke="#17202a" stroke-width="4" marker-end="url(#ai)"/><line x1="475" y1="67" x2="385" y2="67" stroke="#17202a" stroke-width="4" marker-end="url(#ai)"/><text x="65" y="45" font-size="20">F</text><text x="445" y="45" font-size="20">F</text><text x="260" y="120" text-anchor="middle">L scade • ΔL &lt; 0</text></svg></div></div>
+<div class="card"><h3>Întindere</h3><p>Forțele axiale sunt orientate spre exterior și tind să depărteze capetele piesei. Lungimea crește.</p><div class="diagram"><svg viewBox="0 0 520 130"><defs><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z"/></marker></defs><line x1="30" y1="67" x2="490" y2="67" stroke="#8a98a6" stroke-width="1.5" stroke-dasharray="7 6"/><text x="260" y="22" text-anchor="middle" font-size="13" fill="#5e6b78">axa longitudinală</text><rect x="150" y="45" width="220" height="45" fill="#f4cf62" stroke="#17202a" stroke-width="2"/><line x1="135" y1="67" x2="45" y2="67" stroke="#17202a" stroke-width="4" marker-end="url(#ao)"/><line x1="385" y1="67" x2="475" y2="67" stroke="#17202a" stroke-width="4" marker-end="url(#ao)"/><text x="80" y="45" font-size="20">F</text><text x="440" y="45" font-size="20">F</text><text x="260" y="120" text-anchor="middle">L crește • ΔL &gt; 0</text></svg></div></div>
+<div class="card"><h3>Compresiune</h3><p>Forțele axiale sunt orientate spre interior și tind să apropie capetele piesei. Lungimea scade.</p><div class="diagram"><svg viewBox="0 0 520 130"><defs><marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z"/></marker></defs><line x1="30" y1="67" x2="490" y2="67" stroke="#8a98a6" stroke-width="1.5" stroke-dasharray="7 6"/><text x="260" y="22" text-anchor="middle" font-size="13" fill="#5e6b78">axa longitudinală</text><rect x="150" y="45" width="220" height="45" fill="#f4cf62" stroke="#17202a" stroke-width="2"/><line x1="45" y1="67" x2="135" y2="67" stroke="#17202a" stroke-width="4" marker-end="url(#ai)"/><line x1="475" y1="67" x2="385" y2="67" stroke="#17202a" stroke-width="4" marker-end="url(#ai)"/><text x="65" y="45" font-size="20">F</text><text x="445" y="45" font-size="20">F</text><text x="260" y="120" text-anchor="middle">L scade • ΔL &lt; 0</text></svg></div></div>
 </div>
 <div class="card" style="margin-top:16px"><h3>Efortul unitar normal</h3><p style="font-size:1.4rem;text-align:center"><b>σ = F / A</b></p><p>σ – N/mm² &nbsp; • &nbsp; F – N &nbsp; • &nbsp; A – mm²</p></div>
 <div class="navfoot"><button class="btn prev">← Înapoi</button><button class="btn primary next">Observă fenomenul →</button></div>
@@ -133,7 +165,7 @@ textarea:focus,input:focus,select:focus,button:focus-visible{outline:3px solid r
 <div class="stageHead"><h2>3. Observarea fenomenului</h2><span class="stagePill">Observ</span></div>
 <div class="grid2">
 <div class="card controls"><h3>Comenzi și predicție</h3><div class="teacher"><div class="icon">👨‍🏫</div><p id="teacherObs">Privește sensul săgeților. Înainte de a aplica forța, prezice ce se va întâmpla cu lungimea barei.</p></div><div class="row"><button class="btn primary obsMode" data-mode="tension">Întindere</button><button class="btn obsMode" data-mode="compression">Compresiune</button></div><div class="predbox"><b>Predicția mea:</b><label><input type="radio" name="obsPred" value="grow"> Lungimea crește</label><label><input type="radio" name="obsPred" value="shrink"> Lungimea scade</label><label><input type="radio" name="obsPred" value="same"> Lungimea nu se modifică</label></div><label>Forța F: <b id="obsFOut">5000 N</b><input id="obsF" type="range" min="0" max="20000" step="500" value="5000"></label><div class="row"><button id="obsApply" class="btn primary">Aplică forța</button><button id="obsPause" class="btn">Oprește animația</button><button id="obsReset" class="btn">Resetează</button></div><div id="obsText" class="note">Alege o predicție, apoi aplică forța.</div></div>
-<div class="diagram"><svg viewBox="0 0 720 320"><defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z"/></marker></defs><line x1="360" y1="40" x2="360" y2="235" stroke="#cbd5df" stroke-dasharray="6 6"/><text x="360" y="25" text-anchor="middle" font-size="14" fill="#5e6b78">axa longitudinală</text><rect id="obsBar" x="230" y="110" width="260" height="65" rx="5" fill="#f4cf62" stroke="#17202a" stroke-width="2"/><line id="obsL" x1="210" y1="142" x2="90" y2="142" stroke="#17202a" stroke-width="4" marker-end="url(#ar)"/><line id="obsR" x1="510" y1="142" x2="630" y2="142" stroke="#17202a" stroke-width="4" marker-end="url(#ar)"/><text x="145" y="120" font-size="21">F</text><text x="575" y="120" font-size="21">F</text><text id="obsEffect" x="360" y="220" text-anchor="middle" font-size="19" font-weight="bold">Piesa nesolicitată</text><text x="360" y="252" text-anchor="middle">L₀ = 200 mm</text><text id="obsDelta" x="360" y="282" text-anchor="middle" font-size="17" font-weight="bold">ΔL = 0,00 mm</text><text x="360" y="307" text-anchor="middle" font-size="13" fill="#5e6b78">Deformația grafică este amplificată didactic.</text></svg></div>
+<div class="diagram"><svg viewBox="0 0 720 320"><defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z"/></marker></defs><line x1="55" y1="142" x2="665" y2="142" stroke="#8a98a6" stroke-width="1.5" stroke-dasharray="7 6"/><text x="360" y="88" text-anchor="middle" font-size="14" fill="#5e6b78">axa longitudinală</text><rect id="obsBar" x="230" y="110" width="260" height="65" rx="5" fill="#f4cf62" stroke="#17202a" stroke-width="2"/><line id="obsL" x1="210" y1="142" x2="90" y2="142" stroke="#17202a" stroke-width="4" marker-end="url(#ar)"/><line id="obsR" x1="510" y1="142" x2="630" y2="142" stroke="#17202a" stroke-width="4" marker-end="url(#ar)"/><text x="145" y="120" font-size="21">F</text><text x="575" y="120" font-size="21">F</text><text id="obsEffect" x="360" y="220" text-anchor="middle" font-size="19" font-weight="bold">Piesa nesolicitată</text><text x="360" y="252" text-anchor="middle">L₀ = 200 mm</text><text id="obsDelta" x="360" y="282" text-anchor="middle" font-size="17" font-weight="bold">ΔL = 0,00 mm</text><text x="360" y="307" text-anchor="middle" font-size="13" fill="#5e6b78">Deformația grafică este amplificată didactic.</text></svg></div>
 </div>
 <div class="chain"><span id="ch1">Forțe spre exterior</span><b class="arr">→</b><span id="ch2">?</span><b class="arr">→</b><span id="ch3">?</span><b class="arr">→</b><span id="ch4">?</span></div>
 <div class="navfoot"><button class="btn prev">← Înapoi</button><button class="btn primary next">Experiment ghidat →</button></div>
@@ -155,7 +187,7 @@ textarea:focus,input:focus,select:focus,button:focus-visible{outline:3px solid r
 
 <section id="calculator" class="page">
 <div class="stageHead"><h2>6. Calculator de verificare</h2><span class="stagePill">Calculez</span></div>
-<div class="teacher"><div class="icon">👨‍🏫</div><p><b>Profesor virtual:</b> Alege solicitarea, forma profilului și materialul. Introdu dimensiunile și forța axială, apoi compară efortul unitar calculat cu rezistența admisibilă.</p></div>
+<div class="teacher"><div class="icon">👨‍🏫</div><p><b>Profesor virtual:</b> Alege un material și un profil. Realizează minimum 3 simulări de întindere și minimum 3 simulări de compresiune, fără a modifica materialul ales, forța axială și profilul, modificând în schimb dimensiunile secțiunii profilului. Realizează apoi minimum 3 simulări de întindere și minimum 3 simulări de compresiune folosind aceeași forță axială, același profil și aceleași dimensiuni ale secțiunii profilului, modificând în schimb materialul. Nu uita să apeși „Înregistrează simularea în tabel” și apoi „Resetează” după fiecare simulare. Completează în tabel „Rezistă/Nu rezistă” în coloana „Concluzia elevului” pentru fiecare simulare. Observă în tabel cum se comportă piesa la modificarea ariei secțiunii, apoi a materialului piesei la aceeași forță axială. Scrie apoi la „Concluzie generală după simulări” cum creștem rezistența piesei.</p></div>
 <div class="grid2 calcgrid">
 <div class="card controls">
 <h3>Date de intrare</h3>
@@ -171,7 +203,7 @@ textarea:focus,input:focus,select:focus,button:focus-visible{outline:3px solid r
 </div>
 <div class="card">
 <h3>Reprezentarea grafică</h3>
-<div class="diagram"><svg viewBox="0 0 720 330"><defs><marker id="car" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z"/></marker></defs><text id="calcSvgTitle" x="360" y="30" text-anchor="middle" font-size="19" font-weight="bold">ÎNTINDERE</text><rect id="calcOuter" x="230" y="105" width="260" height="90" rx="3" fill="#f4cf62" stroke="#17202a" stroke-width="2"/><rect id="calcInner" x="270" y="128" width="180" height="44" fill="none" stroke="#17202a" stroke-width="2" stroke-dasharray="9 5 2 5" visibility="hidden"/><line id="calcL" x1="210" y1="150" x2="80" y2="150" stroke="#17202a" stroke-width="4" marker-end="url(#car)"/><line id="calcR" x1="510" y1="150" x2="640" y2="150" stroke="#17202a" stroke-width="4" marker-end="url(#car)"/><text x="135" y="126" font-size="22" font-weight="bold">F</text><text x="585" y="126" font-size="22" font-weight="bold">F</text><text id="calcEffect" x="360" y="245" text-anchor="middle" font-size="18" font-weight="bold">Introduce datele și apasă „Calculează”</text><text id="calcProfileText" x="360" y="278" text-anchor="middle" font-size="15">Bară rotundă</text><text x="360" y="308" text-anchor="middle" font-size="13" fill="#5e6b78">Deformația este reprezentată mărit pentru observare.</text></svg></div>
+<div class="diagram"><svg viewBox="0 0 720 330"><defs><marker id="car" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z"/></marker></defs><text id="calcSvgTitle" x="360" y="30" text-anchor="middle" font-size="19" font-weight="bold">ÎNTINDERE</text><line x1="55" y1="150" x2="665" y2="150" stroke="#8a98a6" stroke-width="1.5" stroke-dasharray="7 6"/><text x="360" y="82" text-anchor="middle" font-size="14" fill="#5e6b78">axa longitudinală</text><rect id="calcOuter" x="230" y="105" width="260" height="90" rx="3" fill="#f4cf62" stroke="#17202a" stroke-width="2"/><rect id="calcInner" x="270" y="128" width="180" height="44" fill="none" stroke="#17202a" stroke-width="2" stroke-dasharray="9 5 2 5" visibility="hidden"/><line id="calcL" x1="210" y1="150" x2="80" y2="150" stroke="#17202a" stroke-width="4" marker-end="url(#car)"/><line id="calcR" x1="510" y1="150" x2="640" y2="150" stroke="#17202a" stroke-width="4" marker-end="url(#car)"/><text x="135" y="126" font-size="22" font-weight="bold">F</text><text x="585" y="126" font-size="22" font-weight="bold">F</text><text id="calcEffect" x="360" y="245" text-anchor="middle" font-size="18" font-weight="bold">Introduce datele și apasă „Calculează”</text><text id="calcProfileText" x="360" y="278" text-anchor="middle" font-size="15">Bară rotundă</text><text x="360" y="308" text-anchor="middle" font-size="13" fill="#5e6b78">Deformația este reprezentată mărit pentru observare.</text></svg></div>
 <h3 style="margin-top:16px">Rezultate</h3><div class="calcFormula"><b>σ</b><span>=</span><span>F</span><span>/</span><span>A</span></div><div class="metrics"><div class="metric">Aria secțiunii A<b id="calcArea">–</b><small>mm²</small></div><div class="metric">Efortul unitar σ<b id="calcSigma">–</b><small>N/mm²</small></div><div class="metric">Rezistența admisibilă<b id="calcRaResult">–</b><small>N/mm²</small></div></div>
 
 <div class="tip" style="margin-top:15px"><div>🧠</div><div><b>Sarcina elevului:</b> Calculatorul afișează separat efortul unitar calculat și rezistența admisibilă. Compară singur cele două valori, formulează concluzia și înregistrează simularea în tabelul din secțiunea „Concluzia elevului”. Calculatorul nu afișează verdictul.</div></div>
@@ -255,8 +287,30 @@ textarea:focus,input:focus,select:focus,button:focus-visible{outline:3px solid r
 <div class="navfoot"><button class="btn prev">← Înapoi</button><span></span></div>
 </section>
 </main></div>
+
+<section id="blankReport" style="display:none">
+<h2 style="text-align:center">RAPORT DE LABORATOR</h2>
+<h3 style="text-align:center">Întinderea și compresiunea</h3>
+<p><b>Nume și prenume:</b> ....................................................................................................</p>
+<p><b>Clasa:</b> ........................................ &nbsp;&nbsp;&nbsp; <b>Data:</b> ........................................</p>
+<h3>Rezultatele simulărilor</h3>
+<table><thead><tr><th>Nr.</th><th>Solicitare</th><th>Profil / dimensiuni</th><th>Material</th><th>F [N]</th><th>A [mm²]</th><th>σ [N/mm²]</th><th>Rezistența admisibilă [N/mm²]</th><th>Concluzie</th></tr></thead><tbody><tr><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>3</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>4</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>5</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>6</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>7</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>8</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>9</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>10</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>11</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>12</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>13</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>14</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>15</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>16</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>17</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>18</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>19</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>20</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table>
+<h3>Evaluare</h3><p><b>Punctaj obținut:</b> ........................................ / 100 puncte</p>
+<h3>Concluzie generală după simulări</h3>
+<p>....................................................................................................................................................................</p>
+<p>....................................................................................................................................................................</p>
+<p>....................................................................................................................................................................</p>
+<p>....................................................................................................................................................................</p>
+<p>....................................................................................................................................................................</p>
+<p>....................................................................................................................................................................</p>
+</section>
 <script>
 (()=>{
+if(new URLSearchParams(window.location.search).has('resetLab')){
+  try{
+    Object.keys(localStorage).filter(k=>k.startsWith('lab1')).forEach(k=>localStorage.removeItem(k));
+  }catch(e){}
+}
 const pages=[...document.querySelectorAll('.page')], menu=[...document.querySelectorAll('#menu button')]; let current=0;
 function show(n){current=Math.max(0,Math.min(pages.length-1,n));pages.forEach((p,i)=>p.classList.toggle('active',i===current));menu.forEach((b,i)=>b.classList.toggle('active',i===current));window.scrollTo({top:0,behavior:'smooth'});}
 menu.forEach((b,i)=>b.addEventListener('click',()=>show(i)));document.querySelectorAll('.next').forEach(b=>b.addEventListener('click',()=>show(current+1)));document.querySelectorAll('.prev').forEach(b=>b.addEventListener('click',()=>show(current-1)));
@@ -290,7 +344,7 @@ document.querySelectorAll('.prac').forEach(b=>b.addEventListener('click',()=>{le
 const tq=[['La întindere, capetele piesei:',['se depărtează','se apropie','nu se deplasează'],0],['La compresiune, lungimea piesei:',['crește','scade','rămâne obligatoriu constantă'],1],['Dacă F crește și A rămâne constantă, σ:',['scade','crește','devine zero'],1],['Dacă A se dublează la aceeași F, σ:',['se înjumătățește','se dublează','nu se schimbă'],0],['Unitatea folosită pentru σ este:',['N','mm²','N/mm²'],2]];
 document.getElementById('test').innerHTML=tq.map((q,i)=>`<div class="card quiz" style="margin-bottom:10px"><b>${i+1}. ${q[0]}</b>${q[1].map((a,k)=>`<label><input type="radio" name="t${i}" value="${k}"> ${a}</label>`).join('')}</div>`).join('');
 let score=null;document.getElementById('testCheck').addEventListener('click',()=>{let n=0;tq.forEach((q,i)=>{let a=document.querySelector(`input[name=t${i}]:checked`);if(a&&+a.value===q[2])n++});score=n;document.getElementById('testResult').textContent=`Rezultat: ${n} / ${tq.length} răspunsuri corecte.`;document.getElementById('finalScore').textContent=`${n} / ${tq.length}`});
-document.getElementById('date').textContent=new Date().toLocaleDateString('ro-RO');document.getElementById('restartAll').addEventListener('click',()=>location.reload());
+document.getElementById('date').textContent=new Date().toLocaleDateString('ro-RO');
 arrows();
 })();
 </script>
@@ -489,4 +543,42 @@ window.printLabReport=function(){
 </script>
 
 
+
+<script>
+/* ===== V13 FINAL: resetare completă laborator ===== */
+(()=>{
+  const btn=document.getElementById('restartAll');
+  if(!btn) return;
+  btn.addEventListener('click',()=>{
+    try{
+      Object.keys(localStorage).filter(k=>k.startsWith('lab1')).forEach(k=>localStorage.removeItem(k));
+      Object.keys(sessionStorage).filter(k=>k.startsWith('lab1')).forEach(k=>sessionStorage.removeItem(k));
+    }catch(e){}
+
+    document.querySelectorAll('input').forEach(el=>{
+      if(el.type==='radio'||el.type==='checkbox') el.checked=false;
+      else if(!['button','submit'].includes(el.type)) el.value=el.defaultValue||'';
+      el.disabled=false;
+    });
+    document.querySelectorAll('textarea').forEach(el=>{el.value='';el.textContent='';el.disabled=false});
+    document.querySelectorAll('select').forEach(el=>{el.selectedIndex=0;el.disabled=false});
+
+    const base=window.location.href.split('#')[0].split('?')[0];
+    window.location.replace(base+'?resetLab='+Date.now());
+  });
+})();
+</script>
+
+<script>
+(()=>{
+ const b=document.getElementById('blankReportBtn');
+ if(!b)return;
+ b.addEventListener('click',()=>{
+   document.body.classList.add('printBlankReport');
+   const cleanup=()=>document.body.classList.remove('printBlankReport');
+   window.addEventListener('afterprint',cleanup,{once:true});
+   setTimeout(()=>window.print(),80);
+ });
+})();
+</script>
 </body></html>
